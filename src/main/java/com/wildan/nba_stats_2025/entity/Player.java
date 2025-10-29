@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "player_stats")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

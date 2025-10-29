@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nba_player-stats_2024-2025
+    username: postgres
+    password: A.sdfghjkl12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
