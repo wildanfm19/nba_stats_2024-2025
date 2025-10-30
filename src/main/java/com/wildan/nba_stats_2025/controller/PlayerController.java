@@ -13,14 +13,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/player")
+@RequestMapping("/api/player/stats")
 public class PlayerController {
 
     private final PlayerService playerService;
 
-    @GetMapping("/stats")
+    @GetMapping("/all")
     public ResponseEntity<List<Player>> getAllPlayer(){
         List<Player> listPlayer = playerService.findAllPlayer();
         return ResponseEntity.ok().body(listPlayer);
     }
+
+
 }
