@@ -98,6 +98,49 @@ public class PlayerServiceImpl  implements  PlayerService{
                 .toList();
     }
 
+    @Override
+    public List<PlayerDTO> findPlayersByTeamAndPosition(String teamName, String position) {
+        // --- Normalize team input ---
+        String teamAbbr = null;
+        if (teamName != null && !teamName.isBlank()) {
+            String input = teamName.trim().toLowerCase();
+            teamAbbr = TEAM_MAP.entrySet().stream()
+                    .filter(entry -> entry.getKey().equalsIgnoreCase(input)
+                            || entry.getValue().toLowerCase().contains(input))
+                    .map(Map.Entry::getKey)
+                    .findFirst()
+                    .orElse(input);
+        }
+
+        // --- Query repository ---
+        List<Player> players;
+
+        if (teamAbbr != null && position != null && !position.isBlank()) {
+            // Filter by both team and position
+            players = playerRepository.findByTeamContainingIgnoreCaseAndPosContainingIgnoreCase(teamAbbr, position);
+        } else if (teamAbbr != null) {
+            // Filter only by team
+            players = playerRepository.findByTeamContainingIgnoreCase(teamAbbr);
+        } else if (position != null && !position.isBlank()) {
+            // Filter only by position
+            players = playerRepository.findByPosContainingIgnoreCase(position);
+        } else {
+            // No filter, return all
+            players = playerRepository.findAll();
+        }
+
+        // --- Map to DTO and convert team abbreviation to full name ---
+        return players.stream()
+                .map(player -> {
+                    PlayerDTO dto = modelMapper.map(player, PlayerDTO.class);
+                    if (player.getTeam() != null) {
+                        dto.setTeam(TEAM_MAP.getOrDefault(player.getTeam(), player.getTeam()));
+                    }
+                    return dto;
+                })
+                .toList();
+    }
+
 
 
 

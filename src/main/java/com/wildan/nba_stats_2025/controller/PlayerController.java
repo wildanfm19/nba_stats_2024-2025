@@ -17,24 +17,28 @@ public class PlayerController {
 
     private final PlayerService playerService;
 
+
+    // Endpoint fleksibel: bisa filter team, position, atau keduanya
+    @GetMapping("/search")
+    public ResponseEntity<List<PlayerDTO>> searchPlayersByTeamAndPosition(
+            @RequestParam(required = false) String team,
+            @RequestParam(required = false) String position
+    ){
+        List<PlayerDTO> players = playerService.findPlayersByTeamAndPosition(team, position);
+        return ResponseEntity.ok(players);
+    }
+
+    // Optional: endpoint lain jika ingin tetap memisahkan
     @GetMapping("/all")
-    public ResponseEntity<List<PlayerDTO>> getAllPlayerStats(){
-        List<PlayerDTO> listPlayer = playerService.findAllPlayer();
-        return ResponseEntity.ok().body(listPlayer);
+    public ResponseEntity<List<PlayerDTO>> getAllPlayers(){
+        return ResponseEntity.ok(playerService.findAllPlayer());
     }
 
     @GetMapping("/search/player")
-    public ResponseEntity<List<PlayerDTO>> searchPlayer(@RequestParam String name){
-        List<PlayerDTO> playerDTOS = playerService.findPlayerByName(name);
-        return ResponseEntity.ok().body(playerDTOS);
+    public ResponseEntity<List<PlayerDTO>> searchByName(@RequestParam String name){
+        return ResponseEntity.ok(playerService.findPlayerByName(name));
     }
 
-
-    @GetMapping("/search/team")
-    public ResponseEntity<List<PlayerDTO>> searchTeam(@RequestParam String team){
-        List<PlayerDTO> playerDTOS = playerService.findPlayerByTeam(team);
-        return ResponseEntity.ok().body(playerDTOS);
-    }
 
 
 }
