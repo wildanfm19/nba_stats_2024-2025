@@ -15,96 +15,96 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Rk")
-    private int rk;
+    @Column(name = "rk")
+    private Integer rk;
 
-    @Column(name = "Player")
+    @Column(name = "player")
     private String player;
 
-    @Column(name = "Age")
-    private int age;
+    @Column(name = "age")
+    private Integer age;
 
-    @Column(name = "Team")
+    @Column(name = "team")
     private String team;
 
-    @Column(name = "Pos")
+    @Column(name = "pos")
     private String pos;
 
-    @Column(name = "G")
-    private int g;
+    @Column(name = "g")
+    private Integer g;
 
-    @Column(name = "GS")
-    private int gs;
+    @Column(name = "gs")
+    private Integer gs;
 
-    @Column(name = "MP")
-    private double mp;
+    @Column(name = "mp")
+    private Double mp;
 
-    @Column(name = "FG")
-    private double fg;
+    @Column(name = "fg")
+    private Double fg;
 
-    @Column(name = "FGA")
-    private double fga;
+    @Column(name = "fga")
+    private Double fga;
 
-    @Column(name = "FG%")
-    private double fgPercent;
+    @Column(name = "fg_percent")
+    private Double fgPercent;
 
-    @Column(name = "3P")
-    private double threeP;
+    @Column(name = "three_p")
+    private Double threeP;
 
-    @Column(name = "3PA")
-    private double threePA;
+    @Column(name = "three_pa")
+    private Double threePa;
 
-    @Column(name = "3P%")
-    private double threePPercent;
+    @Column(name = "three_p_percent")
+    private Double threePPercent;
 
-    @Column(name = "2P")
-    private double twoP;
+    @Column(name = "two_p")
+    private Double twoP;
 
-    @Column(name = "2PA")
-    private double twoPA;
+    @Column(name = "two_pa")
+    private Double twoPa;
 
-    @Column(name = "2P%")
-    private double twoPPercent;
+    @Column(name = "two_p_percent")
+    private Double twoPPercent;
 
-    @Column(name = "eFG%")
-    private double efgPercent;
+    @Column(name = "efg_percent")
+    private Double efgPercent;
 
-    @Column(name = "FT")
-    private double ft;
+    @Column(name = "ft")
+    private Double ft;
 
-    @Column(name = "FTA")
-    private double fta;
+    @Column(name = "fta")
+    private Double fta;
 
-    @Column(name = "FT%")
-    private double ftPercent;
+    @Column(name = "ft_percent")
+    private Double ftPercent;
 
-    @Column(name = "ORB")
-    private double orb;
+    @Column(name = "orb")
+    private Double orb;
 
-    @Column(name = "DRB")
-    private double drb;
+    @Column(name = "drb")
+    private Double drb;
 
-    @Column(name = "TRB")
-    private double trb;
+    @Column(name = "trb")
+    private Double trb;
 
-    @Column(name = "AST")
-    private double ast;
+    @Column(name = "ast")
+    private Double ast;
 
-    @Column(name = "STL")
-    private double stl;
+    @Column(name = "stl")
+    private Double stl;
 
-    @Column(name = "BLK")
-    private double blk;
+    @Column(name = "blk")
+    private Double blk;
 
-    @Column(name = "TOV")
-    private double tov;
+    @Column(name = "tov")
+    private Double tov;
 
-    @Column(name = "PF")
-    private double pf;
+    @Column(name = "pf")
+    private Double pf;
 
-    @Column(name = "PTS")
-    private double pts;
+    @Column(name = "pts")
+    private Double pts;
 
-    @Column(name = "Awards")
+    @Column(name = "awards")
     private String awards;
 }
