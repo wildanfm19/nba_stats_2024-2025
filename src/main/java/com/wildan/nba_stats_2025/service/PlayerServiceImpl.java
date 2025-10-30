@@ -1,5 +1,6 @@
 package com.wildan.nba_stats_2025.service;
 
+import com.wildan.nba_stats_2025.PlayerNotFoundException;
 import com.wildan.nba_stats_2025.dto.PlayerDTO;
 import com.wildan.nba_stats_2025.entity.Player;
 import com.wildan.nba_stats_2025.repository.PlayerRepository;
@@ -24,5 +25,14 @@ public class PlayerServiceImpl  implements  PlayerService{
                 .map(player -> modelMapper.map(player , PlayerDTO.class))
                 .toList();
         return playersDTO;
+    }
+
+    @Override
+    public List<PlayerDTO> findPlayer(String playerName) {
+       List<Player> players = playerRepository.findByPlayerContainingIgnoreCase(playerName);
+       List<PlayerDTO> playersDTO = players.stream()
+                .map(player -> modelMapper.map(player , PlayerDTO.class))
+                .toList();
+       return playersDTO;
     }
 }
