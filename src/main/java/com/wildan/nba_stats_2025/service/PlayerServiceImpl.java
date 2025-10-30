@@ -28,11 +28,12 @@ public class PlayerServiceImpl  implements  PlayerService{
     }
 
     @Override
-    public List<PlayerDTO> findPlayer(String playerName) {
-       List<Player> players = playerRepository.findByPlayerContainingIgnoreCase(playerName);
-       List<PlayerDTO> playersDTO = players.stream()
+    public List<PlayerDTO> findPlayerByName(String name) {
+        List<Player> players = playerRepository.findByPlayerContainingIgnoreCase(name);
+        List<PlayerDTO> playersDTO = players.stream()
                 .map(player -> modelMapper.map(player , PlayerDTO.class))
                 .toList();
-       return playersDTO;
+        return playersDTO;
     }
+
 }
