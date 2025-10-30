@@ -23,9 +23,16 @@ public class PlayerController {
         return ResponseEntity.ok().body(listPlayer);
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<PlayerDTO>> getPlayerStats(@RequestParam String name){
+    @GetMapping("/search/player")
+    public ResponseEntity<List<PlayerDTO>> searchPlayer(@RequestParam String name){
         List<PlayerDTO> playerDTOS = playerService.findPlayerByName(name);
+        return ResponseEntity.ok().body(playerDTOS);
+    }
+
+
+    @GetMapping("/search/team")
+    public ResponseEntity<List<PlayerDTO>> searchTeam(@RequestParam String team){
+        List<PlayerDTO> playerDTOS = playerService.findPlayerByTeam(team);
         return ResponseEntity.ok().body(playerDTOS);
     }
 

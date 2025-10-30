@@ -10,4 +10,6 @@ public interface PlayerService {
     List<PlayerDTO>findAllPlayer();
 
     List<PlayerDTO> findPlayerByName(String name);
+
+    List<PlayerDTO> findPlayerByTeam(String teamName);
 }

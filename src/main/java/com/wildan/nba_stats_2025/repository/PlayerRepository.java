@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface PlayerRepository extends JpaRepository<Player , Long> {
 
     List<Player> findByPlayerContainingIgnoreCase(String namePart);
+
+    List<Player> findByTeamContainingIgnoreCase(String teamName);
 }
