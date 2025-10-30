@@ -1,5 +1,6 @@
 package com.wildan.nba_stats_2025.controller;
 
+import com.wildan.nba_stats_2025.dto.PlayerDTO;
 import com.wildan.nba_stats_2025.entity.Player;
 import com.wildan.nba_stats_2025.repository.PlayerRepository;
 import com.wildan.nba_stats_2025.service.PlayerService;
@@ -19,10 +20,13 @@ public class PlayerController {
     private final PlayerService playerService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Player>> getAllPlayer(){
-        List<Player> listPlayer = playerService.findAllPlayer();
+    public ResponseEntity<List<PlayerDTO>> getAllPlayer(){
+        List<PlayerDTO> listPlayer = playerService.findAllPlayer();
         return ResponseEntity.ok().body(listPlayer);
     }
+//
+//    @GetMapping("/{player}")
+//    public ResponseEntity<Player>
 
 
 }
