@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PlayerDTO {
 
+    private Long id;
     private Integer rk;
     private String player;
     private Integer age;
